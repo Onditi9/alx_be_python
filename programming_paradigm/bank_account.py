@@ -1,16 +1,40 @@
-class BankAccount:
-    def _init_(self, initial_balance=0):
-        self.account_balance = initial_balance
+import sys
+from bank_account import BankAccount
 
-    def deposit(self, amount):
-        self.account_balance += amount
+account = BankAccount(initial_balance=100)
 
-    def withdraw(self, amount):
-        if amount <= self.account_balance:
-            self.account_balance -= amount
-            return True
-        else:
-            return False
+def main():
+    if len(sys.argv) != 2:
+        print("Usage: python main-0.py [deposit:<amount> | withdraw:<amount> | display]")
+        return
 
-    def display_balance(self):
-        print(f"Current account balance: ${self.account_balance:.2f}")
+    command = sys.argv[1]
+
+    if command.startswith("deposit:"):
+        try:
+            amount = float(command.split(":")[1])
+            if account.deposit(amount):
+                print(f"Deposited: ${amount}")
+            else:
+                print("Invalid deposit amount.")
+        except ValueError:
+            print("Invalid amount for deposit.")
+
+    elif command.startswith("withdraw:"):
+        try:
+            amount = float(command.split(":")[1])
+            if account.withdraw(amount):
+                print(f"Withdrew: ${amount}")
+            else:
+                print("Insufficient funds.")
+        except ValueError:
+            print("Invalid amount for withdrawal.")
+
+    elif command == "display":
+        account.display_balance()
+
+    else:
+        print("Invalid command.")
+
+if __name__ == "__main__":
+    main()
