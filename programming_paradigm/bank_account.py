@@ -1,23 +1,18 @@
-# Simple Bank Account Class
+# programming_paradigm/bank_account.py
+
 class BankAccount:
-
-    # _init_ method to initialize an account_balance attribute
     def _init_(self, initial_balance=0):
-        self.account_balance = initial_balance
+        self.__account_balance = initial_balance  # Encapsulated attribute
 
-    # Deposit function that adds a specified amount to account_balance
     def deposit(self, amount):
         if amount > 0:
-            self.account_balance += amount
+            self.__account_balance += amount
 
-    # Withdraw function that deducts a specified amount (handles sufficient and insufficient balances)
     def withdraw(self, amount):
-        if amount <= self.account_balance:
-            self.account_balance -= amount
+        if 0 < amount <= self.__account_balance:
+            self.__account_balance -= amount
             return True
-        else:
-            return False
+        return False
 
-    # Print the current balance         
     def display_balance(self):
-        print(f"Current Balance: ${self.account_balance:.2f}")
+        print(f"Current Balance: ${self.__account_balance:.2f}")
