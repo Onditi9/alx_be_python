@@ -7,10 +7,10 @@ class Book:
     def __str__(self):
         return f"{self.title} by {self.author} ({self.year})"
 
-    def _repr_(self):
+    def __repr__(self):
         return f"Book(title='{self.title}', author='{self.author}', year={self.year})"
 
-    def _eq_(self, other):
+    def __eq__(self, other):
         if not isinstance(other, Book):
             return NotImplemented
         return (
