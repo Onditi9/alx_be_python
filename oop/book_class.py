@@ -4,7 +4,7 @@ class Book:
         self.author = author
         self.year = year
 
-    def _str_(self):
+    def __str__(self):
         return f"{self.title} by {self.author} ({self.year})"
 
     def _repr_(self):
