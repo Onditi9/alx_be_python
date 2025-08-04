@@ -1,16 +1,25 @@
+# library_system.py
+
 class Book:
-    def _init_(self, title, author, year):
+    def _init_(self, title, author):
         self.title = title
         self.author = author
-        self.year = year
 
     def _str_(self):
-        return f"{self.title} by {self.author}, published in {self.year}"
+        return f"{self.title} by {self.author}"
 
-    def _del_(self):
-        print(f"Deleting {self.title}")
+class EBook(Book):
+    def _init_(self, title, author, file_size):
+        super()._init_(title, author)
+        self.file_size = file_size
 
+    def _str_(self):
+        return f"EBook: {self.title} by {self.author}, File Size: {self.file_size}MB"
 
-# Optional method if needed
-    def details(self):
-        return f"Book '{self.title}' - {self.author} - {self.year}"
+class PrintBook(Book):
+    def _init_(self, title, author, pages):
+        super()._init_(title, author)
+        self.pages = pages
+
+    def _str_(self):
+        return f"PrintBook: {self.title} by {self.author}, Pages: {self.pages}"
