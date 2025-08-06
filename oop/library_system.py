@@ -21,12 +21,12 @@ class EBook(Book):
         return self.get_info()
 
 class PrintBook(Book):
-    def __init__(self, title, author, weight):
+    def __init__(self, title, author, page_count):
         super().__init__(title, author)
-        self.weight = weight
+        self.page_count = page_count
 
     def get_info(self):
-        return f"{super().get_info()} [PrintBook, {self.weight}g]"
+        return f"{super().get_info()} [PrintBook, {self.page_count} pages]"
 
     def __str__(self):
         return self.get_info()
