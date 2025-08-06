@@ -2,7 +2,7 @@
 class BankAccount:
 
     # _init_ method to initialize an account_balance attribute
-    def _init_(self, initial_balance=0):
+    def __init__(self, initial_balance=0):
         self.account_balance = initial_balance
 
     # Deposit function that adds a specified amount to account_balance
