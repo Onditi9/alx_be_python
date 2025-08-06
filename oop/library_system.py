@@ -15,7 +15,7 @@ class EBook(Book):
         self.file_size = file_size
 
     def get_info(self):
-        return f"{super().get_info()} [EBook, {self.file_size}MB]"
+        return f"EBook: {self.title} by {self.file_size}KB"
 
     def __str__(self):
         return self.get_info()
@@ -26,7 +26,7 @@ class PrintBook(Book):
         self.page_count = page_count
 
     def get_info(self):
-        return f"{super().get_info()} [PrintBook, {self.page_count} pages]"
+        return f"PrintBook: {self.title} by {self.author}, page count: {self.page_count}"
 
     def __str__(self):
         return self.get_info()
