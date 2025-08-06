@@ -1,42 +1,42 @@
 # Base Class - Book
 class Book:
-    def _init_(self, title, author):
+    def __init__(self, title, author):
         self.title = title
         self.author = author
 
     def get_info(self):
         return f"{self.title} by {self.author}"
 
-    def _str_(self):
+    def __str__(self):
         return self.get_info()
 
 # Derived Class - EBook
 class EBook(Book):
-    def _init_(self, title, author, file_size):
+    def __init__(self, title, author, file_size):
         super()._init_(title, author)
         self.file_size = file_size
 
     def get_info(self):
         return f"{super().get_info()} [EBook, {self.file_size}MB]"
 
-    def _str_(self):
+    def __str__(self):
         return self.get_info()
 
 # Derived Class - PrintBook
 class PrintBook(Book):
-    def _init_(self, title, author, weight):
+    def __init__(self, title, author, weight):
         super()._init_(title, author)
         self.weight = weight
 
     def get_info(self):
         return f"{super().get_info()} [PrintBook, {self.weight}g]"
 
-    def _str_(self):
+    def __str__(self):
         return self.get_info()
 
 # Library class using composition
 class Library:
-    def _init_(self):
+    def __init__(self):
         self.books = []
 
     def add_book(self, book):
@@ -44,4 +44,4 @@ class Library:
 
     def list_books(self):
         for book in self.books:
-            print(book)  # _str_ is automatically called here
+            print(book)  # __str__ is automatically called here
