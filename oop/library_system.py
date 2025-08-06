@@ -1,6 +1,6 @@
 # Base Class - Book
 class Book:
-    def _init_(self, title, author):
+    def __init__(self, title, author):
         self.title = title
         self.author = author
 
@@ -9,7 +9,7 @@ class Book:
 
 # Derived Class - EBook
 class EBook(Book):
-    def _init_(self, title, author, file_size):
+    def __init__(self, title, author, file_size):
         super()._init_(title, author)
         self.file_size = file_size
 
@@ -18,7 +18,7 @@ class EBook(Book):
 
 # Derived Class - PrintBook
 class PrintBook(Book):
-    def _init_(self, title, author, weight):
+    def __init__(self, title, author, weight):
         super()._init_(title, author)
         self.weight = weight
 
@@ -27,7 +27,7 @@ class PrintBook(Book):
 
 # Library class using composition
 class Library:
-    def _init_(self):
+    def __init__(self):
         self.books = []
 
     def add_book(self, book):
