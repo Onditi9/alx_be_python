@@ -1,5 +1,4 @@
 class Calculator:
-    # Class attribute
     calculation_type = "Arithmetic Operations"
 
     @staticmethod
@@ -10,9 +9,9 @@ class Calculator:
     @classmethod
     def multiply(cls, a, b):
         """Returns the product of two numbers and prints the class attribute."""
-        print(f"Calculation Type: {cls.calculation_type}")  # lowercase 'type'
-        return a * b 
-    
+        print(f"Calculation type: {cls.calculation_type}")
+        return a * b
+
 
 if __name__ == "__main__":
     result_sum = Calculator.add(10, 5)
