@@ -1,17 +1,43 @@
-from library_system import Book, EBook, PrintBook, Library
+class Book:
+    def _init_(self, title, author):
+        self.title = title
+        self.author = author
 
-def main():
-    my_library = Library()
+    def get_info(self):
+        return f"Book: {self.title} by {self.author}"
 
-    classic_book = Book("Pride and Prejudice", "Jane Austen")
-    digital_novel = EBook("Snow Crash", "Neal Stephenson", 500)
-    paper_novel = PrintBook("The Catcher in the Rye", "J.D. Salinger", 234)
+    def _str_(self):
+        return self.get_info()
 
-    my_library.add_book(classic_book)
-    my_library.add_book(digital_novel)
-    my_library.add_book(paper_novel)
+class EBook(Book):
+    def _init_(self, title, author, file_size):
+        super()._init_(title, author)
+        self.file_size = file_size
 
-    my_library.list_books()
+    def get_info(self):
+        return f"EBook: {self.title} by {self.author}, File Size: {self.file_size}KB"
 
-if __name__ == "__main__":
-    main()
+    def _str_(self):
+        return self.get_info()
+
+class PrintBook(Book):
+    def _init_(self, title, author, page_count):
+        super()._init_(title, author)
+        self.page_count = page_count
+
+    def get_info(self):
+        return f"PrintBook: {self.title} by {self.author}, page count: {self.page_count}"
+
+    def _str_(self):
+        return self.get_info()
+
+class Library:
+    def _init_(self):
+        self.books = []
+
+    def add_book(self, book):
+        self.books.append(book)
+
+    def list_books(self):
+        for book in self.books:
+            print(book)
